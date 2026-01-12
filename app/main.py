@@ -1,5 +1,5 @@
 class Animal:
-    alive = []
+    alive: list = []
 
     def __init__(self,
                  name: str,
@@ -11,10 +11,8 @@ class Animal:
         Animal.alive.append(self)
 
     def _register_alive(self) -> None:
-        if self.health > 0:
-            self.alive.append(self)
-        elif self.health <= 0:
-            self.alive.remove(self)
+        if self.health <= 0:
+            Animal.alive.remove(self)
 
     def __repr__(self) -> str:
         return (f"{{"
